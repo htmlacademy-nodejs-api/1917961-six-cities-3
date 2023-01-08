@@ -3,20 +3,21 @@ import { Host } from './host.type.js';
 import { Location } from './location.type.js';
 
 export type Offer = {
-  bedrooms: number;
-  city: City;
-  description: string;
-  goods: string[];
-  host: Host;
+  bedrooms: number; //Количество комнат. Обязательное. Мин. 1, Макс. 8;
+  city: City; //Город. Обязательное. Один из шести городов.
+  description: string; //Описание предложения. Обязательное. Мин. длина 20 символов, макс. длина 1024 символа;
+  goods: string[]; //Удобства. Обязательное. Список удобств. Один или несколько вариантов из списка: Breakfast, Air conditioning, Laptop friendly workspace, Baby seat, Washer, Towels, Fridge;
+  host: Host; //Автор предложения. Обязательное. Ссылка на сущность «Пользователь»;
   id: number;
-  images: string[];
-  isFavorite: boolean;
-  isPremium: boolean;
-  location: Location;
-  maxAdults: number;
-  previewImage: string;
-  price: number;
-  rating: number;
-  title: string;
-  type: string;
+  images: string[]; //Фотографии жилья. Обязательное. Список ссылок на фотографии жилья. Всегда 6 фотографий;
+  isFavorite: boolean; //Флаг «Избранное». Обязательное. Признак того, что предложение принадлежит списку избранных предложений пользователя;
+  isPremium: boolean; //Флаг «Премиум». Обязательное. Признак премиальности предложения;
+  location: Location; //Координаты предложения для аренды. Обязательное. Координаты представлены широтой и долготой.
+  maxAdults: number; //Количество гостей. Обязательное. Мин. 1, Макс. 10;
+  previewImage: string; //Превью изображения. Обязательное. Ссылка на изображение, которое используется в качестве превью;
+  price: number; //Стоимость аренды. Обязательное. Мин. 100, Макс. 100 000;
+  rating: number; //Рейтинг. Обязательное. Число от 1 до 5. Допускаются числа с запятой (1 знак после запятой);
+  title: string; //Наименование. Обязательное. Мин. длин 10 символов, макс. длина 100;
+  type: string; //Тип жилья. Обязательное. Один из вариантов: apartment, house, room, hotel;
+  date: string //Дата публикации предложения. Обязательное.
 };
