@@ -1,19 +1,24 @@
 import 'reflect-metadata';
 import { Container } from 'inversify';
 import AppLication from './app/application.js';
-import { ConfigInterface } from './common/config/config.interface.js';
-import ConfigService from './common/config/config.service.js';
-import { LoggerInterface } from './common/logger/logger.interface.js';
-import LoggerService from './common/logger/logger.service.js';
 import { Component } from './types/component.types.js';
-import DatabaseService from './common/database-client/database.service.js';
-import { DatabaseInterface } from './common/database-client/database.interface.js';
+import { applicationContainer } from './app/application.container.js';
+import { userContainer } from './modules/user/user.container.js';
+import { locationContainer } from './modules/location/location.container.js';
+import { cityContainer } from './modules/city/city.container.js';
+import { offerContainer } from './modules/offer/offer.container.js';
 
-const applicationContainer = new Container();
-applicationContainer.bind<AppLication>(Component.Application).to(AppLication).inSingletonScope();
-applicationContainer.bind<LoggerInterface>(Component.LoggerInterface).to(LoggerService).inSingletonScope();
-applicationContainer.bind<ConfigInterface>(Component.ConfigInterface).to(ConfigService).inSingletonScope();
-applicationContainer.bind<DatabaseInterface>(Component.DatabaseInterface).to(DatabaseService).inSingletonScope();
+const mainContainer = Container.merge(
+  applicationContainer,
+  userContainer,
+  locationContainer,
+  cityContainer,
+  offerContainer,
+);
 
-const aplication = applicationContainer.get<AppLication>(Component.Application);
-await aplication.init();
+async function bootstart() {
+  const aplication = mainContainer.get<AppLication>(Component.Application);
+  await aplication.init();
+}
+
+bootstart();

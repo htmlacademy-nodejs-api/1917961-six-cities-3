@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { MAX_BEDROOMS, MAX_ADULTS, MIN_PRICE, MAX_PRICE, FIRST_WEEK_DAY, LAST_WEEK_DAY } from '../../const.js';
 import { City } from '../../types/city.type.js';
-import { Host } from '../../types/host.type.js';
+import { User } from '../../types/user.type.js';
 import { Location } from '../../types/location.type.js';
 import { MockData } from '../../types/mock-data.type.js';
 import RandomUtils from '../../utils/random-utils.js';
@@ -9,7 +9,7 @@ import { OfferGeneratorInterface } from './offer-generator.interface.js';
 
 export class OfferGenerator implements OfferGeneratorInterface {
   private randomUtils = new RandomUtils();
-  private offerId = 0;
+  //private offerId = 0;
 
   constructor (private readonly mockData: MockData) {
 
@@ -20,8 +20,8 @@ export class OfferGenerator implements OfferGeneratorInterface {
     const city: City = this.randomUtils.getRandomItem<City>(this.mockData.cities);
     const description = this.randomUtils.getRandomItem<string>(this.mockData.description);
     const goods = this.randomUtils.getRandomItems<string>(this.mockData.goods).join(', ');
-    const host: Host = this.randomUtils.getRandomItem<Host>(this.mockData.hosts);
-    const id = this.offerId++;
+    const host: User = this.randomUtils.getRandomItem<User>(this.mockData.hosts);
+    //const id = this.offerId++;
     const images = this.randomUtils.getRandomItems<string>(this.mockData.images).join(', ');
     const isFavorite = Boolean(this.randomUtils.generateRandomValue(0,1)).toString();
     const isPremium = Boolean(this.randomUtils.generateRandomValue(0,1)).toString();
@@ -42,12 +42,11 @@ export class OfferGenerator implements OfferGeneratorInterface {
       description,
       goods,
       host.avatarUrl,
-      host.id.toString(),
       host.isPro.toString(),
       host.name,
       host.email,
       host.password,
-      id.toString(),
+      //id.toString(),
       images,
       isFavorite.toString(),
       isPremium.toString(),
