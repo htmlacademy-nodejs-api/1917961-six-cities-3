@@ -1,5 +1,5 @@
 import { City } from './city.type.js';
-import { Host } from './host.type.js';
+import { User } from './user.type.js';
 import { Location } from './location.type.js';
 
 export type Offer = {
@@ -7,8 +7,8 @@ export type Offer = {
   city: City; //Город. Обязательное. Один из шести городов.
   description: string; //Описание предложения. Обязательное. Мин. длина 20 символов, макс. длина 1024 символа;
   goods: string[]; //Удобства. Обязательное. Список удобств. Один или несколько вариантов из списка: Breakfast, Air conditioning, Laptop friendly workspace, Baby seat, Washer, Towels, Fridge;
-  host: Host; //Автор предложения. Обязательное. Ссылка на сущность «Пользователь»;
-  id: number;
+  user: User; //Автор предложения. Обязательное. Ссылка на сущность «Пользователь»;
+  //id: number;
   images: string[]; //Фотографии жилья. Обязательное. Список ссылок на фотографии жилья. Всегда 6 фотографий;
   isFavorite: boolean; //Флаг «Избранное». Обязательное. Признак того, что предложение принадлежит списку избранных предложений пользователя;
   isPremium: boolean; //Флаг «Премиум». Обязательное. Признак премиальности предложения;

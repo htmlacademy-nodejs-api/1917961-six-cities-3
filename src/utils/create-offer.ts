@@ -6,7 +6,7 @@ export default class CreateOffer {
     const tokens = row.replace('\n', '').split('\t');
 
     const [bedrooms, cityLocationLatitude, cityLocationLongitude, cityLocationZoom, cityName, description, goods,
-      hostAvatarUrl, hostId, hostIsPro, hostName, hostEmail, hostPassword, id, images, isFavorite, isPremium, locationLatitude,
+      hostAvatarUrl, hostIsPro, hostName, hostEmail, hostPassword, images, isFavorite, isPremium, locationLatitude,
       locationLongitude, locationZoom, maxAdults, previewImage, price, rating, title, type, date] = tokens;
     return {
       bedrooms: Number.parseInt(bedrooms, 10),
@@ -20,15 +20,13 @@ export default class CreateOffer {
       },
       description,
       goods: goods.split(', '),
-      host: {
+      user: {
         avatarUrl: hostAvatarUrl,
-        id: Number.parseInt(hostId, 10),
         isPro: hostIsPro === 'true',
         name: hostName,
         email: hostEmail,
         password: hostPassword,
       },
-      id: Number.parseInt(id, 10),
       images: images.split(', '),
       isFavorite: isFavorite === 'true',
       isPremium: isPremium === 'true',

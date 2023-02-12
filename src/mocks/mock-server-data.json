@@ -9,10 +9,10 @@
       {"name": "Amsterdam",  "location": {"latitude": 52.370216, "longitude": 4.895168,  "zoom": 13}}
     ],
     "hosts": [
-      {"avatarUrl": "img/avatar-angelina.jpg", "id": 1, "isPro": false, "name": "Angelina", "email": "angelina@icloud.com", "password": "&heRf34uJm"},
-      {"avatarUrl": "img/avatar-robert.jpg",   "id": 2, "isPro": true, "name": "Robert",   "email": "obert@gmail.com",     "password": "UJyhn23&rF"},
-      {"avatarUrl": "img/avatar-max.jpg",      "id": 3, "isPro": false, "name": "Max",      "email": "max@outlook.com",     "password": "Wedc^yHN$"},
-      {"avatarUrl": "img/avatar-bill.jpg",     "id": 4, "isPro": true, "name": "Bill",     "email": "bill45@yandex.ru",    "password": "Wedc^yHF$$"}
+      {"avatarUrl": "img/avatar-angelina.jpg", "isPro": false, "name": "Angelina", "email": "angelina@icloud.com", "password": "&heRf34uJm"},
+      {"avatarUrl": "img/avatar-robert.jpg",   "isPro": true, "name": "Robert",   "email": "obert@gmail.com",     "password": "UJyhn23&rF"},
+      {"avatarUrl": "img/avatar-max.jpg",      "isPro": false, "name": "Max",      "email": "max@outlook.com",     "password": "Wedc^yHN$"},
+      {"avatarUrl": "img/avatar-bill.jpg",     "isPro": true, "name": "Bill",     "email": "bill45@yandex.ru",    "password": "Wedc^yHF$$"}
     ],
     "description": [
       "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",

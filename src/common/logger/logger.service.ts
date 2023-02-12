@@ -18,7 +18,7 @@ export default class LoggerService implements LoggerInterface{
     this.logger.warn(message, ...args);
   }
 
-  errror(message: string, ...args: unknown[]): void {
+  error(message: string, ...args: unknown[]): void {
     this.logger.error(message, ...args);
   }
 
