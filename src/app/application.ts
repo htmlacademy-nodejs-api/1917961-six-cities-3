@@ -2,6 +2,7 @@ import { inject, injectable } from 'inversify';
 import { ConfigInterface } from '../common/config/config.interface.js';
 import { DatabaseInterface } from '../common/database-client/database.interface.js';
 import { LoggerInterface } from '../common/logger/logger.interface.js';
+import { CommentServiceInterface } from '../modules/comment/comment-service.interface.js';
 import { Component } from '../types/component.types.js';
 import { getURI } from '../utils/db.js';
 
@@ -12,6 +13,7 @@ export default class AppLication {
     @inject(Component.LoggerInterface) private logger: LoggerInterface,
     @inject(Component.ConfigInterface) private config: ConfigInterface,
     @inject(Component.DatabaseInterface) private databaseClient: DatabaseInterface,
+    @inject(Component.CommentServiceInterface) private commsentSrvice: CommentServiceInterface,
   ) {}
 
   public async init () {
@@ -27,5 +29,12 @@ export default class AppLication {
 
     this.databaseClient.connect(uri);
 
+    const comment = await this.commsentSrvice.create({
+      text: 'bad',
+      offerId: '63ea6c97c15edb4eaa034388',
+      userId: '63ea6c97c15edb4eaa034371',
+      rating: 1,
+    });
+    console.log(comment);
   }
 }
