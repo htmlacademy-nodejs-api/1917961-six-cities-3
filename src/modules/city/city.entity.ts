@@ -1,5 +1,4 @@
-import { defaultClasses, getModelForClass, modelOptions, prop, Ref } from '@typegoose/typegoose';
-import { LocationEntity } from '../location/location.entity.js';
+import { defaultClasses, getModelForClass, modelOptions, prop } from '@typegoose/typegoose';
 
 @modelOptions({
   schemaOptions: {
@@ -7,18 +6,18 @@ import { LocationEntity } from '../location/location.entity.js';
   }
 })
 export class CityEntity extends defaultClasses.TimeStamps {
-  constructor(location: Ref<LocationEntity>, name: string) {
+  constructor(latitude: number, longitude: number, name: string) {
     super();
-    this.location = location;
+    this.latitude = latitude;
+    this.longitude = longitude;
     this.name = name;
   }
 
-  @prop({
-    ref: LocationEntity,
-    required: true,
-    _id: false
-  })
-  public location!: Ref<LocationEntity>;
+  @prop({require: true})
+  public latitude!: number;
+
+  @prop({require: true})
+  public longitude!: number;
 
   @prop({unique: true, require: true})
   public name!: string;

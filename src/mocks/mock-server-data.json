@@ -1,16 +1,16 @@
 {
   "api": {
     "cities": [
-      {"name": "Hamburg",    "location": {"latitude": 53.550341, "longitude": 10.000654, "zoom": 13}},
-      {"name": "Dusseldorf", "location": {"latitude": 51.225402, "longitude": 6.776314,  "zoom": 13}},
-      {"name": "Paris",      "location": {"latitude": 48.856610, "longitude": 2.351499,  "zoom": 13}},
-      {"name": "Cologne",    "location": {"latitude": 50.938361, "longitude": 6.959974,  "zoom": 13}},
-      {"name": "Brussels",   "location": {"latitude": 50.846557, "longitude": 4.351697,  "zoom": 13}},
-      {"name": "Amsterdam",  "location": {"latitude": 52.370216, "longitude": 4.895168,  "zoom": 13}}
+      {"name": "Hamburg",    "latitude": 53.550341, "longitude": 10.00065},
+      {"name": "Dusseldorf", "latitude": 51.225402, "longitude": 6.776314},
+      {"name": "Paris",      "latitude": 48.856610, "longitude": 2.351499},
+      {"name": "Cologne",    "latitude": 50.938361, "longitude": 6.959974},
+      {"name": "Brussels",   "latitude": 50.846557, "longitude": 4.351697},
+      {"name": "Amsterdam",  "latitude": 52.370216, "longitude": 4.895168}
     ],
     "hosts": [
       {"avatarUrl": "img/avatar-angelina.jpg", "isPro": false, "name": "Angelina", "email": "angelina@icloud.com", "password": "&heRf34uJm"},
-      {"avatarUrl": "img/avatar-robert.jpg",   "isPro": true, "name": "Robert",   "email": "obert@gmail.com",     "password": "UJyhn23&rF"},
+      {"avatarUrl": "img/avatar-robert.jpg",   "isPro": true, "name": "Robert",   "email": "robert@gmail.com",     "password": "UJyhn23&rF"},
       {"avatarUrl": "img/avatar-max.jpg",      "isPro": false, "name": "Max",      "email": "max@outlook.com",     "password": "Wedc^yHN$"},
       {"avatarUrl": "img/avatar-bill.jpg",     "isPro": true, "name": "Bill",     "email": "bill45@yandex.ru",    "password": "Wedc^yHF$$"}
     ],
@@ -78,21 +78,21 @@
       "hotel"
     ],
     "locations": [
-      {"latitude": 52.378540, "longitude": 4.894976, "zoom": 16},
-      {"latitude": 50.844557, "longitude": 4.346697, "zoom": 16},
-      {"latitude": 50.867557, "longitude": 4.357697, "zoom": 16},
-      {"latitude": 50.960361, "longitude": 6.967974, "zoom": 16},
-      {"latitude": 53.573340, "longitude": 9.994654, "zoom": 16},
-      {"latitude": 53.563341, "longitude": 9.975654, "zoom": 16},
-      {"latitude": 52.363540, "longitude": 4.911976, "zoom": 16},
-      {"latitude": 52.370540, "longitude": 4.909976, "zoom": 16},
-      {"latitude": 51.214402, "longitude": 6.764314, "zoom": 16},
-      {"latitude": 51.211402, "longitude": 6.756314, "zoom": 16},
-      {"latitude": 51.237402, "longitude": 6.797314, "zoom": 16},
-      {"latitude": 52.385540, "longitude": 4.902976, "zoom": 16},
-      {"latitude": 53.534341, "longitude": 9.998654, "zoom": 16},
-      {"latitude": 51.204402, "longitude": 6.777314, "zoom": 16},
-      {"latitude": 50.950361, "longitude": 6.961974, "zoom": 16}
+      {"latitude": 52.378540, "longitude": 4.894976},
+      {"latitude": 50.844557, "longitude": 4.346697},
+      {"latitude": 50.867557, "longitude": 4.357697},
+      {"latitude": 50.960361, "longitude": 6.967974},
+      {"latitude": 53.573340, "longitude": 9.994654},
+      {"latitude": 53.563341, "longitude": 9.975654},
+      {"latitude": 52.363540, "longitude": 4.911976},
+      {"latitude": 52.370540, "longitude": 4.909976},
+      {"latitude": 51.214402, "longitude": 6.764314},
+      {"latitude": 51.211402, "longitude": 6.756314},
+      {"latitude": 51.237402, "longitude": 6.797314},
+      {"latitude": 52.385540, "longitude": 4.902976},
+      {"latitude": 53.534341, "longitude": 9.998654},
+      {"latitude": 51.204402, "longitude": 6.777314},
+      {"latitude": 50.950361, "longitude": 6.961974}
     ]
   }
 }

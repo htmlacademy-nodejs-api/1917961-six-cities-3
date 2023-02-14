@@ -1,6 +1,5 @@
-import { Location } from './location.type.js';
-
 export type City = {
-  location: Location;
+  latitude: number;
+  longitude: number;
   name: string;
 };

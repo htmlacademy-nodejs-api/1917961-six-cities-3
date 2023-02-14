@@ -1,6 +1,5 @@
-import { Location } from '../../../types/location.type.js';
-
 export default class CreatreCityDto {
-  public location!: Location;
+  public latitude!: number;
+  public longitude!: number;
   public name!: string;
 }

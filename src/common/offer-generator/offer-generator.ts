@@ -9,7 +9,6 @@ import { OfferGeneratorInterface } from './offer-generator.interface.js';
 
 export class OfferGenerator implements OfferGeneratorInterface {
   private randomUtils = new RandomUtils();
-  //private offerId = 0;
 
   constructor (private readonly mockData: MockData) {
 
@@ -21,7 +20,6 @@ export class OfferGenerator implements OfferGeneratorInterface {
     const description = this.randomUtils.getRandomItem<string>(this.mockData.description);
     const goods = this.randomUtils.getRandomItems<string>(this.mockData.goods).join(', ');
     const host: User = this.randomUtils.getRandomItem<User>(this.mockData.hosts);
-    //const id = this.offerId++;
     const images = this.randomUtils.getRandomItems<string>(this.mockData.images).join(', ');
     const isFavorite = Boolean(this.randomUtils.generateRandomValue(0,1)).toString();
     const isPremium = Boolean(this.randomUtils.generateRandomValue(0,1)).toString();
@@ -35,9 +33,8 @@ export class OfferGenerator implements OfferGeneratorInterface {
     const createDate = dayjs().subtract(this.randomUtils.generateRandomValue(FIRST_WEEK_DAY, LAST_WEEK_DAY), 'day').toISOString();
     return [
       bedrooms,
-      city.location.latitude.toString(),
-      city.location.longitude.toString(),
-      city.location.zoom.toString(),
+      city.latitude.toString(),
+      city.longitude.toString(),
       city.name,
       description,
       goods,
@@ -46,13 +43,11 @@ export class OfferGenerator implements OfferGeneratorInterface {
       host.name,
       host.email,
       host.password,
-      //id.toString(),
       images,
       isFavorite.toString(),
       isPremium.toString(),
       location.latitude.toString(),
       location.longitude.toString(),
-      location.zoom.toString(),
       maxAdults.toString(),
       previewImage,
       price.toString(),
