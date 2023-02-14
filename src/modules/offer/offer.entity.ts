@@ -1,6 +1,5 @@
 import { defaultClasses, getModelForClass, modelOptions, prop, Ref } from '@typegoose/typegoose';
 import { CityEntity } from '../city/city.entity.js';
-import { LocationEntity } from '../location/location.entity.js';
 import { UserEntity } from '../user/user.entity.js';
 
 @modelOptions({
@@ -42,12 +41,11 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({required: true})
   public isPremium!: boolean;
 
-  @prop({
-    ref: LocationEntity,
-    required: true,
-    _id: false
-  })
-  public location!: Ref<LocationEntity>;
+  @prop({required: true})
+  public latitude!: number;
+
+  @prop({required: true})
+  public longitude!: number;
 
   @prop({required: true})
   public maxAdults!: number;

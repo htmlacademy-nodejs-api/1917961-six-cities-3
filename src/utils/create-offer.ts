@@ -5,17 +5,14 @@ export default class CreateOffer {
   public createOffer(row: string): Offer {
     const tokens = row.replace('\n', '').split('\t');
 
-    const [bedrooms, cityLocationLatitude, cityLocationLongitude, cityLocationZoom, cityName, description, goods,
+    const [bedrooms, cityLocationLatitude, cityLocationLongitude, cityName, description, goods,
       hostAvatarUrl, hostIsPro, hostName, hostEmail, hostPassword, images, isFavorite, isPremium, locationLatitude,
-      locationLongitude, locationZoom, maxAdults, previewImage, price, rating, title, type, date] = tokens;
+      locationLongitude, maxAdults, previewImage, price, rating, title, type, date] = tokens;
     return {
       bedrooms: Number.parseInt(bedrooms, 10),
       city: {
-        location: {
-          latitude: Number.parseFloat(cityLocationLatitude),
-          longitude: Number.parseFloat(cityLocationLongitude),
-          zoom: Number.parseInt(cityLocationZoom, 10),
-        },
+        latitude: Number.parseFloat(cityLocationLatitude),
+        longitude: Number.parseFloat(cityLocationLongitude),
         name: cityName,
       },
       description,
@@ -30,11 +27,8 @@ export default class CreateOffer {
       images: images.split(', '),
       isFavorite: isFavorite === 'true',
       isPremium: isPremium === 'true',
-      location: {
-        latitude: Number.parseFloat(locationLatitude),
-        longitude: Number.parseFloat(locationLongitude),
-        zoom: Number.parseInt(locationZoom, 10),
-      },
+      latitude: Number.parseFloat(locationLatitude),
+      longitude: Number.parseFloat(locationLongitude),
       maxAdults: Number.parseInt(maxAdults, 10),
       previewImage,
       price: Number.parseFloat(price),

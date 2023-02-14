@@ -1,5 +1,4 @@
 import { City } from '../../../types/city.type.js';
-import { Location } from '../../../types/location.type.js';
 import { User } from '../../../types/user.type.js';
 
 export class CreateOfferDto {
@@ -11,7 +10,8 @@ export class CreateOfferDto {
   public images!: string[];
   public isFavorite!: boolean;
   public isPremium!: boolean;
-  public location!: Location;
+  public latitude!: number;
+  public longitude!: number;
   public maxAdults!: number;
   public previewImage!: string;
   public price!: number;

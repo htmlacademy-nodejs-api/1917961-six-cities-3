@@ -2,7 +2,6 @@ import { CliCommondInterface } from './cli-command.interface.js';
 import TSVFileReader from '../common/file-reader/tsv-file-reader.js';
 import CreateOffer from '../utils/create-offer.js';
 import { UserServiceInterface } from '../modules/user/user-service.interface.js';
-import { LocationServiceInterface } from '../modules/location/location-service.interface.js';
 import { CityServiceInterface } from '../modules/city/city-service.interface.js';
 import { DatabaseInterface } from '../common/database-client/database.interface.js';
 import { LoggerInterface } from '../common/logger/logger.interface.js';
@@ -11,8 +10,6 @@ import OfferService from '../modules/offer/offer.service.js';
 import { OfferModel } from '../modules/offer/offer.entity.js';
 import CityService from '../modules/city/city.service.js';
 import { CityModel } from '../modules/city/city.entity.js';
-import LocationService from '../modules/location/location.service.js';
-import { LocationModel } from '../modules/location/location.entity.js';
 import UserService from '../modules/user/user.service.js';
 import { UserModel } from '../modules/user/user.entity.js';
 import DatabaseService from '../common/database-client/database.service.js';
@@ -20,13 +17,11 @@ import { Offer } from '../types/offer.type.js';
 import { getURI } from '../utils/db.js';
 
 const DEFAULT_DB_PORT = 27017;
-//const DEFAULT_USER_PASSWORD = '123456';
 
 export default class ImportCommand implements CliCommondInterface {
   public readonly name = '--import';
   public offer = new CreateOffer();
   private userService!: UserServiceInterface;
-  private locationService!: LocationServiceInterface;
   private cityService!: CityServiceInterface;
   private offerService!: OfferService;
   private databaseService!: DatabaseInterface;
@@ -39,8 +34,7 @@ export default class ImportCommand implements CliCommondInterface {
 
     this.logger = new ConsoleLoggerService();
     this.offerService = new OfferService(this.logger, OfferModel);
-    this.locationService = new LocationService(this.logger, LocationModel);
-    this.cityService = new CityService(this.logger, CityModel, this.locationService);
+    this.cityService = new CityService(this.logger, CityModel);
     this.userService = new UserService(this.logger, UserModel);
     this.databaseService = new DatabaseService(this.logger);
   }
@@ -51,23 +45,17 @@ export default class ImportCommand implements CliCommondInterface {
       ...offer.user
     }, this.salt);
 
-    //const locationCyti = await this.locationService.create(offer.city.location);
-
     const city = await this.cityService.findOrCreate(offer.city);
-
-    const location = await this.locationService.create(offer.location);
 
     await this.offerService.create({
       ...offer,
       city: city.id,
-      location: location.id,
       user: user.id,
     });
   }
 
   private async onLine(line: string, resolve: () => void) {
     const offer1 = this.offer.createOffer(line);
-    //console.log(offer1);
     await this.saveOffer(offer1);
     resolve();
   }
