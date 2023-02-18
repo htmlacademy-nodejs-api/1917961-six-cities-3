@@ -9,7 +9,7 @@ import { SortType } from '../../types/sort-type.enum.js';
 import { UpdateOfferDto } from './dto/update-offer.dto.js';
 
 const OFFER_COUNT_DEFAULT = 60;
-const OFFER_COUNT_PREMIUM = 5;
+const OFFER_COUNT_PREMIUM = 3;
 
 @injectable()
 export default class OfferService implements OfferServiceInterface {
@@ -24,9 +24,9 @@ export default class OfferService implements OfferServiceInterface {
     return result;
   }
 
-  public async findById(offerId: string): Promise<DocumentType<OfferEntity> | null> {
+  public async findById(_id: string): Promise<DocumentType<OfferEntity> | null> {
     return this.offerModel
-      .findById(offerId)
+      .findById(_id)
       .populate(['user', 'city'])
       .exec();
   }
@@ -44,15 +44,16 @@ export default class OfferService implements OfferServiceInterface {
   public async findPremium(count?: number): Promise<DocumentType<OfferEntity>[]> {
     const limit = count ?? OFFER_COUNT_PREMIUM;
     return this.offerModel
-      .find({isPremium:	'true'}, {}, {limit})
+      .find({isPremium:	true}, {}, {limit})
       .sort({createdAt: SortType.Down})
       .populate(['user', 'city'])
       .exec();
   }
 
   public async findFavorite(): Promise<DocumentType<OfferEntity>[]> {
+    console.log('findFavorite');
     return this.offerModel
-      .find({isFavorite :	'true'})
+      .find({isFavorite :	true})
       .sort({createdAt: SortType.Down})
       .populate(['user', 'city'])
       .exec();
