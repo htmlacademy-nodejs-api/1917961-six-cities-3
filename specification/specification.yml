@@ -12,6 +12,8 @@ tags:
     description: Действия с объявлениями.
   - name: favorite
     description: Действия с избранными предложениями.
+  - name: premium
+    description: Действие с примеальными предложениями
   - name: comments
     description: Действия с комментариями.
   - name: users
@@ -83,7 +85,7 @@ paths:
                 $ref: '#/components/schemas/AuthErrorMessage'
 
   /offer/{offerId}:
-    post:
+    delete:
       tags:
         - offers
       summary: Удаление предложения
@@ -150,7 +152,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/changeOffer'
 
-    post:
+    patch:
       tags:
         - offers
       summary: Редактирование предложения
@@ -243,8 +245,9 @@ paths:
                 $ref: '#/components/schemas/AuthErrorMessage'
       security:
         - tokenAuth: []
+
   /favorite/{offerId}/{status}:
-    post:
+    patch:
       tags:
         - favorite
       summary: Изменить статус избранного у предложения
@@ -279,6 +282,38 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/changeOffer'
+        '401':
+          description: Пользователь не авторизован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthErrorMessage'
+      security:
+        - tokenAuth: []
+
+  /premium:
+    get:
+      tags:
+        - premium
+      summary: Получить список премиальных предложений
+      description: Возвращает массив премиальных предложений.
+      parameters:
+        - name: X-Token
+          in: header
+          description: Авторизационный токен пользователя
+          required: true
+          schema:
+            type: string
+            example: T2xpdmVyLmNvbm5lckBnbWFpbC5jb20=
+      responses:
+        '200':
+          description: Массив предложений
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/changeOffer'
         '401':
           description: Пользователь не авторизован
           content:
