@@ -259,14 +259,14 @@ paths:
           description: Уникальный идентификатор предложения
           required: true
           schema:
-            type: number
+            type: string
             example: 63ea6c97c15edb4eaa034377
         - name: status
           in: path
           description: Статус избранного предложения. Может быть `1` или `0`, где `1` добавляет предложение в избранное, а `0` удаляет
           required: true
           schema:
-            type: number
+            type: string
             example: 1
         - name: X-Token
           in: header

@@ -1,6 +1,11 @@
-import { Expose } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
+import CityResponse from '../city/city.response.js';
 
 export default class OfferResponse {
+  @Expose()
+  @Type(() => CityResponse)
+  public city!: CityResponse;
+
   @Expose()
   public price!: number;
 

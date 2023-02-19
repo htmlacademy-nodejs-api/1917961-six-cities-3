@@ -1,11 +1,13 @@
 import { City } from './city.type.js';
+import { GoodsType } from './goods-type.ennum.js';
+import { OfferType } from './offer-type.enum.js';
 import { User } from './user.type.js';
 
 export type Offer = {
   bedrooms: number; //Количество комнат. Обязательное. Мин. 1, Макс. 8;
   city: City; //Город. Обязательное. Один из шести городов.
   description: string; //Описание предложения. Обязательное. Мин. длина 20 символов, макс. длина 1024 символа;
-  goods: string[]; //Удобства. Обязательное. Список удобств. Один или несколько вариантов из списка: Breakfast, Air conditioning, Laptop friendly workspace, Baby seat, Washer, Towels, Fridge;
+  goods: Array<GoodsType>; //Удобства. Обязательное. Список удобств. Один или несколько вариантов из списка: Breakfast, Air conditioning, Laptop friendly workspace, Baby seat, Washer, Towels, Fridge;
   user: User; //Автор предложения. Обязательное. Ссылка на сущность «Пользователь»;
   images: string[]; //Фотографии жилья. Обязательное. Список ссылок на фотографии жилья. Всегда 6 фотографий;
   isFavorite: boolean; //Флаг «Избранное». Обязательное. Признак того, что предложение принадлежит списку избранных предложений пользователя;
@@ -17,6 +19,6 @@ export type Offer = {
   price: number; //Стоимость аренды. Обязательное. Мин. 100, Макс. 100 000;
   rating: number; //Рейтинг. Обязательное. Число от 1 до 5. Допускаются числа с запятой (1 знак после запятой);
   title: string; //Наименование. Обязательное. Мин. длин 10 символов, макс. длина 100;
-  type: string; //Тип жилья. Обязательное. Один из вариантов: apartment, house, room, hotel;
+  type: OfferType; //Тип жилья. Обязательное. Один из вариантов: apartment, house, room, hotel;
   date: string //Дата публикации предложения. Обязательное.
 };

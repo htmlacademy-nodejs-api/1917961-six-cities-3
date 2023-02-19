@@ -13,4 +13,3 @@ export const fillDTO = <T, V>(someDto: ClassConstructor<T>, plainObject: V) =>
 export const createErrorObject = (message: string) => ({
   error: message,
 });
-

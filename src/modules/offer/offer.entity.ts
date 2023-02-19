@@ -1,4 +1,6 @@
 import { defaultClasses, getModelForClass, modelOptions, prop, Ref } from '@typegoose/typegoose';
+import { GoodsType } from '../../types/goods-type.ennum.js';
+import { OfferType } from '../../types/offer-type.enum.js';
 import { CityEntity } from '../city/city.entity.js';
 import { UserEntity } from '../user/user.entity.js';
 
@@ -23,7 +25,7 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   public description!: string;
 
   @prop({required: true, default: [], type: String})
-  public goods!: string[];
+  public goods!: Array<GoodsType>;
 
   @prop({
     ref: UserEntity,
@@ -63,7 +65,7 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   public title!: string;
 
   @prop({required: true})
-  public type!: string;
+  public type!: OfferType;
 
   @prop({required: true})
   public date!: string;
