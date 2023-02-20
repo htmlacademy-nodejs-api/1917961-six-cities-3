@@ -2,7 +2,6 @@ import { IsArray, IsBoolean, IsDateString, IsEnum, IsInt, IsMongoId, IsNumber, I
 import { City } from '../../../types/city.type.js';
 import { GoodsType } from '../../../types/goods-type.ennum.js';
 import { OfferType } from '../../../types/offer-type.enum.js';
-import { User } from '../../../types/user.type.js';
 
 export class CreateOfferDto {
 
@@ -22,8 +21,7 @@ export class CreateOfferDto {
   @IsEnum(GoodsType, {each: true, message: 'type must be Breakfast, Air conditioning, Laptop friendly workspace, Baby seat, Washer, Towels, Fridge;'})
   public goods!: Array<GoodsType>;
 
-  @IsMongoId({message: 'userId field must be valid an id'})
-  public user!: User;
+  public user!: string;
 
   @IsArray({message: 'Field images must be an array'})
   public images!: string[];
