@@ -52,7 +52,7 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({required: true})
   public maxAdults!: number;
 
-  @prop({required: true})
+  @prop({required: true, default: ''})
   public previewImage!: string;
 
   @prop({required: true})
