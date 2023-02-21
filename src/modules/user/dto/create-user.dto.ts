@@ -2,8 +2,8 @@ import { IsBoolean, IsEmail, IsString, Length } from 'class-validator';
 
 export default class CreateUserDto {
 
-  @IsString({message: 'avatarPath is required'})
-  public avatarUrl!: string;
+  //@IsString({message: 'avatarPath is required'})
+  //public avatarUrl!: string;
 
   @IsBoolean({message: 'isPro is required'})
   public isPro!: boolean;
