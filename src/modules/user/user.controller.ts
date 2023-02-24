@@ -18,6 +18,7 @@ import { UploadFileMiddleware } from '../../common/middlewares/upload-file.middl
 import { JWT_ALGORITM } from './user.constant.js';
 import LoggedUserResponse from './logged-user.response.js';
 import UploadUserAvatarResponse from './upload-user-avatar.response.js';
+import { UserPath } from './user.enum.path.js';
 
 @injectable()
 export default class UserController extends Controller {
@@ -30,19 +31,19 @@ export default class UserController extends Controller {
     this.logger.info('Register routes for UserController…');
 
     this.addRoute({
-      path: '/register',
+      path: UserPath.Register,
       method: HttpMethod.Post,
       handler: this.create,
       middlewares: [new ValidateDtoMiddleware(CreateUserDto)]});
 
     this.addRoute({
-      path: '/login',
+      path: UserPath.Login,
       method: HttpMethod.Post,
       handler: this.login,
       middlewares: [new ValidateDtoMiddleware(LoginUserDto)]});
 
     this.addRoute({
-      path: '/:userId/avatar',
+      path: UserPath.Avatar,
       method: HttpMethod.Post,
       handler: this.uploadAvatar,
       middlewares: [
@@ -52,7 +53,7 @@ export default class UserController extends Controller {
     });
 
     this.addRoute({
-      path: '/login',
+      path: UserPath.Login,
       method: HttpMethod.Get,
       handler: this.checkAuthenticate
     });

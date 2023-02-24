@@ -19,6 +19,7 @@ import CommentResponse from '../comment/comment.response.js';
 import { CreateOfferDto } from './dto/create-offer.dto.js';
 import { UpdateOfferDto } from './dto/update-offer.dto.js';
 import { OfferServiceInterface } from './offer-service.interface.js';
+import { OfferPath } from './offer.enum.path.js';
 import OfferResponse from './offer.response.js';
 import UploadImageResponse from './upload-image.response.js';
 
@@ -44,7 +45,7 @@ export default class OfferController extends Controller {
     this.addRoute({path: '/', method: HttpMethod.Get, handler: this.showOffers});
 
     this.addRoute({
-      path: '/',
+      path: OfferPath.Root,
       method: HttpMethod.Post,
       handler: this.create,
       middlewares: [
@@ -53,19 +54,19 @@ export default class OfferController extends Controller {
       ]});
 
     this.addRoute({
-      path: '/premium',
+      path: OfferPath.Premium,
       method: HttpMethod.Get,
       handler: this.showPremium,
       middlewares: [new PrivateRouteMiddleware()]});
 
     this.addRoute({
-      path: '/favorite',
+      path: OfferPath.Favorite,
       method: HttpMethod.Get,
       handler: this.showFavorite,
       middlewares: [new PrivateRouteMiddleware()]});
 
     this.addRoute({
-      path: '/favorite/:offerId/:isFavorite',
+      path: OfferPath.UpdateFavorite,
       method: HttpMethod.Get,
       handler: this.updateFavorite,
       middlewares: [
@@ -77,7 +78,7 @@ export default class OfferController extends Controller {
     });
 
     this.addRoute({
-      path: '/:offerId',
+      path: OfferPath.Offer,
       method: HttpMethod.Get,
       handler: this.show,
       middlewares: [
@@ -88,7 +89,7 @@ export default class OfferController extends Controller {
     });
 
     this.addRoute({
-      path: '/:offerId',
+      path: OfferPath.Offer,
       method: HttpMethod.Delete,
       handler: this.delete,
       middlewares: [
@@ -99,7 +100,7 @@ export default class OfferController extends Controller {
     });
 
     this.addRoute({
-      path: '/:offerId',
+      path: OfferPath.Offer,
       method: HttpMethod.Patch,
       handler: this.update,
       middlewares: [
@@ -111,7 +112,7 @@ export default class OfferController extends Controller {
     });
 
     this.addRoute({
-      path: '/:offerId/comments',
+      path: OfferPath.OfferComments,
       method: HttpMethod.Get,
       handler: this.getComments,
       middlewares: [
@@ -121,7 +122,7 @@ export default class OfferController extends Controller {
       ]
     });
     this.addRoute({
-      path: '/:offerId/imagePreview',
+      path: OfferPath.OfferImagePreview,
       method: HttpMethod.Post,
       handler: this.uploadImagePreview,
       middlewares: [
@@ -131,7 +132,7 @@ export default class OfferController extends Controller {
       ]
     });
     this.addRoute({
-      path: '/:offerId/image',
+      path: OfferPath.OfferImage,
       method: HttpMethod.Post,
       handler: this.uploadImage,
       middlewares: [
