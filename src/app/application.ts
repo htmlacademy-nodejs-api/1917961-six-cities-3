@@ -9,6 +9,7 @@ import { ControllerInterface } from '../common/controller/controller.interface.j
 import { ExceptionFilterInterface } from '../common/errors/exception-filter.interface.js';
 import { AuthenticateMiddleware } from '../common/middlewares/authenticate.middleware.js';
 import { getFullServerPath } from '../utils/common.js';
+import { ApplicationRoutes } from './application.enum.routes.js';
 
 @injectable()
 export default class AppLication {
@@ -27,9 +28,9 @@ export default class AppLication {
   }
 
   public initRoutes () {
-    this.expressApp.use('/offers', this.offerController.router);
-    this.expressApp.use('/users', this.userController.router);
-    this.expressApp.use('/comments', this.commentController.router);
+    this.expressApp.use(ApplicationRoutes.Offers, this.offerController.router);
+    this.expressApp.use(ApplicationRoutes.Users, this.userController.router);
+    this.expressApp.use(ApplicationRoutes.Users, this.commentController.router);
   }
 
   public initMiddleware() {
