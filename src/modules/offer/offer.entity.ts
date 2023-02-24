@@ -1,5 +1,5 @@
 import { defaultClasses, getModelForClass, modelOptions, prop, Ref } from '@typegoose/typegoose';
-import { GoodsType } from '../../types/goods-type.ennum.js';
+import { GoodsType } from '../../types/goods-type.enum.js';
 import { OfferType } from '../../types/offer-type.enum.js';
 import { CityEntity } from '../city/city.entity.js';
 import { UserEntity } from '../user/user.entity.js';

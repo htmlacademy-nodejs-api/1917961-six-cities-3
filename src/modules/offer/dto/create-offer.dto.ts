@@ -1,6 +1,6 @@
 import { IsArray, IsBoolean, IsDateString, IsEnum, IsInt, IsMongoId, IsNumber, IsString, Length, Max, Min } from 'class-validator';
 import { City } from '../../../types/city.type.js';
-import { GoodsType } from '../../../types/goods-type.ennum.js';
+import { GoodsType } from '../../../types/goods-type.enum.js';
 import { OfferType } from '../../../types/offer-type.enum.js';
 
 export class CreateOfferDto {

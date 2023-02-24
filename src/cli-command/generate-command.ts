@@ -1,4 +1,3 @@
-//import { appendFile } from 'fs/promises';
 import got from 'got';
 import TSVFileWriter from '../common/file-writer.tsv/tsv-file-writer.js';
 import { OfferGenerator } from '../common/offer-generator/offer-generator.js';
@@ -21,7 +20,6 @@ export default class GenerayeCommand implements CliCommondInterface{
     const tsvFileWriter = new TSVFileWriter(filepath);
 
     for(let i = 0; i < offerCount; i++) {
-      //await appendFile(filepath, `${offerGeneratorSttring.generate()}\n`, 'utf8');
       await tsvFileWriter.write(offerGeneratorString.generate());
     }
   }

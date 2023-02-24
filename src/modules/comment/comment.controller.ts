@@ -12,6 +12,7 @@ import { HttpMethod } from '../../types/http-method.enum.js';
 import { fillDTO } from '../../utils/common.js';
 import { OfferServiceInterface } from '../offer/offer-service.interface.js';
 import { CommentServiceInterface } from './comment-service.interface.js';
+import { CommentPath } from './comment.enum.path.js';
 import CommentResponse from './comment.response.js';
 import CreateCommentDto from './dto/create-comment.dto.js';
 
@@ -26,7 +27,7 @@ export default class CommentController extends Controller {
     super(logger, configService);
     this.logger.info('Register routes for CommentController…');
     this.addRoute({
-      path: '/', method: HttpMethod.Post,
+      path: CommentPath.Create, method: HttpMethod.Post,
       handler: this.create,
       middlewares: [
         new PrivateRouteMiddleware(),
